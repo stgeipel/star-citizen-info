@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Modal from 'react-modal'
 import { useState } from 'react'
 
 const customStyles = {
@@ -14,8 +13,6 @@ const customStyles = {
 }
 
 const Home = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
   return (
     <div className="container">
       <Head>
@@ -23,10 +20,7 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <button onClick={() => setIsModalOpen(true)}>klick hier</button>
-        <Modal isOpen={isModalOpen} style={customStyles}></Modal>
-      </main>
+      <main></main>
     </div>
   )
 }
