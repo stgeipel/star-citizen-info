@@ -1,15 +1,22 @@
 import Head from 'next/head'
 import { useState } from 'react'
 import useSWR from 'swr'
+import fetcher from '../lib/fetcher'
 
 const Home = () => {
   const { data, error } = useSWR(
     `{
-      Movie(title: "Inception") {
-        releaseDate
-        actors {
+      ship {
+        name
+        pirce
+        company {
           name
+          short_name
         }
+        classification {
+          shiptype
+        }
+        cargo_capacity
       }
     }`,
     fetcher
@@ -21,7 +28,7 @@ const Home = () => {
         <title>Info</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      {data && data.ship.map((s) => <span>{s.name}</span>)}
       <main></main>
     </div>
   )
