@@ -3,7 +3,7 @@ interface IShip {
   price: number
   cargo_capacity: number
   classification: IClassification
-  develop_status: IStatus
+  ship_develop_status: IStatus
   company: ICompany
 }
 

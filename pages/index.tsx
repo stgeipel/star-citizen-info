@@ -1,31 +1,15 @@
 import Head from 'next/head'
-import useSWR from 'swr'
-import fetcher from '../lib/fetcher'
+
 import ShipCard from '../components/ShipCard'
-import { IShip } from '../types/Ship'
+import { useState } from 'react'
+import getShips from '../hooks/get-ships'
+import getCompanies from '../hooks/get-companies'
+import { ICompany } from '../types/Ship'
 
 const Home = () => {
-  const { data, error } = useSWR(
-    `{
-      ship {
-        name
-        pirce
-        company {
-          name
-          short_name
-        }
-        classification {
-          shiptype
-        }
-        cargo_capacity
-        develop_status {
-          value
-        }
-      }
-    }
-    `,
-    fetcher
-  )
+  const [filter, setFilter] = useState<ICompany>()
+  const ships = getShips()
+  const companies = getCompanies()
 
   return (
     <>
@@ -34,10 +18,22 @@ const Home = () => {
           <title>Info</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <div className="relative bg-gray-100 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+        <div className="relative bg-gray-100 pt-8 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+          <div>
+            {companies &&
+              companies.map((c) => (
+                <div role="button" onClick={(e) => setFilter(c)}>
+                  {c.name}
+                </div>
+              ))}
+          </div>
           <div className="relative max-w-7xl mx-auto">
             <div className="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-none">
-              {data && data.ship.map((s) => <ShipCard data={s}></ShipCard>)}
+              {ships && filter == null
+                ? ships.map((s) => <ShipCard key={s.name} data={s}></ShipCard>)
+                : ships
+                    .filter((s) => s.company.short_name == filter.short_name)
+                    .map((s) => <ShipCard key={s.name} data={s}></ShipCard>)}
             </div>
           </div>
         </div>

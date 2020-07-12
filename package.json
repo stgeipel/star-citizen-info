@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint --ext .ts,.tsx ./src",
+    "lint": "eslint --ext .ts,.tsx",
     "lint:all": "cross-env DEBUG=eslint:cli-engine eslint --ext .js,.jsx,.ts,.tsx --ignore-pattern '!.eslintrc.js' .",
     "lint-config": "eslint --print-config .eslintrc.js"
   },
