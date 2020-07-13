@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = {
-  extends: ['xo', 'xo-react', 'xo-typescript'],
+  extends: ['xo', 'xo-react', 'xo-typescript', 'prettier'],
   overrides: [
     {
       files: ['*.js', '*.jsx'],
