@@ -1,6 +1,6 @@
-import Shipstatus from './Shipstatus'
-import { IShip } from '../types/Ship'
-import { formatNumber } from '../lib/fotmattings'
+import Shipstatus from './Shipstatus';
+import { IShip } from '../types/Ship';
+import { formatNumber } from '../lib/fotmattings';
 
 const ShipCard = ({ data: ship }: { data: IShip }) => (
   <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
@@ -12,15 +12,23 @@ const ShipCard = ({ data: ship }: { data: IShip }) => (
         <div className="float-right">
           <Shipstatus status={ship.ship_develop_status}></Shipstatus>
         </div>
-        <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900">{ship.name}</h3>
+        <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
+          {ship.name}
+        </h3>
         <div className="mt-3 sm:mx-6">
           <dl className="grid grid-cols-1 col-gap-4 row-gap-8 sm:grid-cols-2">
             <div className="sm:col-span-1">
-              <dt className="text-sm leading-5 font-medium text-gray-500">Kargokapatzität</dt>
-              <dd className="mt-1 text-sm leading-5 text-gray-900">{ship.cargo_capacity}</dd>
+              <dt className="text-sm leading-5 font-medium text-gray-500">
+                Cargokapatzität
+              </dt>
+              <dd className="mt-1 text-sm leading-5 text-gray-900">
+                {ship.cargo_capacity}
+              </dd>
             </div>
             <div className="sm:col-span-1">
-              <dt className="text-sm leading-5 font-medium text-gray-500">Preis</dt>
+              <dt className="text-sm leading-5 font-medium text-gray-500">
+                Preis
+              </dt>
               <dd className="mt-1 text-sm leading-5 text-gray-900">
                 {formatNumber(ship.price)} aUEC
               </dd>
@@ -38,6 +46,6 @@ const ShipCard = ({ data: ship }: { data: IShip }) => (
       </div>
     </div>
   </div>
-)
+);
 
-export default ShipCard
+export default ShipCard;
