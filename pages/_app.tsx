@@ -1,5 +1,5 @@
 import '../assets/style.css';
-import Head from '../components/Head';
+import Head from '../components/layout/Head';
 import React, { useState, useEffect } from 'react';
 
 export default function MyApp({ Component, pageProps }) {

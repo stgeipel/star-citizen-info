@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Transition from '../lib/transition';
+import Transition from '../../lib/transition';
 
 const Head = (theme, setTheme) => {
   return (
