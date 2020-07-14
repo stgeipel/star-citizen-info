@@ -5,16 +5,18 @@ import { useState } from 'react';
 import getShips from '../hooks/get-ships';
 import getCompanies from '../hooks/get-companies';
 import { ICompany } from '../types/Ship';
+import Layout from '../components/layout/Layout';
+import { NextPage } from 'next';
 
-const Home = () => {
+const Home: NextPage = () => {
   const [filter, setFilter] = useState<ICompany>();
   const ships = getShips();
   const companies = getCompanies();
 
   return (
-    <>
-      <div className="theme-light bg-background-ternary  ">
-        <div className="relative pt-8 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+    <Layout title="Star Citizen Info" className="container py-8">
+      <div>
+        <div className=" pt-8 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
           <div>
             {companies &&
               companies.map((c) => (
@@ -44,7 +46,7 @@ const Home = () => {
           }
         `}
       </style>
-    </>
+    </Layout>
   );
 };
 

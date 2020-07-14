@@ -1,6 +1,7 @@
 module.exports = {
   purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    darkSelector: '.dark-mode',
     screens: {
       sm: '640px',
       // => @media (min-width: 640px) { ... }
@@ -29,19 +30,26 @@ module.exports = {
     },
     extend: {
       colors: {
-        background: {
-          primary: 'var(--bg-background-primary)',
-          secondary: 'var(--bg-background-secondary)',
-          ternary: 'var(--bg-background-ternary)',
+        primary: {
+          lighter: '#78C0E0',
+          default: '#449DD1',
+          darker: '#3943B7',
         },
       },
-      copy: {
-        primary: 'var(--text-copy-primary)',
-        secondary: 'var(--text-copy-secondary)',
-      },
-      github: 'var(--github-img)',
     },
   },
-  variants: {},
-  plugins: [require('@tailwindcss/ui')],
+  variants: {
+    backgroundColor: ['dark', 'responsive', 'hover', 'focus'],
+    borderColor: [
+      'dark',
+      'dark-focus-within',
+      'responsive',
+      'hover',
+      'focus',
+      'focus-within',
+    ],
+    borderWidth: ['dark', 'responsive'],
+    textColor: ['dark', 'responsive', 'hover', 'focus'],
+  },
+  plugins: [require('@tailwindcss/ui'), require('tailwindcss-dark-mode')()],
 };

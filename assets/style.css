@@ -1,23 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@tailwind screens;
 
-.theme-light {
-  --bg-background-primary: white;
-  --bg-background-secondary: #f7fafc;
-  --bg-background-ternary: #e2e8f0;
-  --text-copy-primary: #1a202c;
-  --text-copy-secondary: #a0aec0;
-  --github-img: url('/GitHub-Mark-32px-png');
+.dark-mode-transition * {
+  @apply transition duration-500 ease-in-out;
 }
 
-.theme-dark {
-  --bg-background-primary: #0d2438;
-  --bg-background-secondary: #102c44;
-  --bg-background-ternary: #1e3951;
+body {
+  @apply bg-gray-200;
+  @apply text-black;
 }
 
-.github {
-  background-image: var(--github-img);
+body.dark-mode {
+  @apply bg-gray-900;
+  @apply text-white;
 }
