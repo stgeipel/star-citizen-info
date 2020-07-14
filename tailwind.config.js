@@ -30,17 +30,12 @@ module.exports = {
     },
     extend: {
       colors: {
-        background: {
-          primary: 'var(--bg-background-primary)',
-          secondary: 'var(--bg-background-secondary)',
-          ternary: 'var(--bg-background-ternary)',
+        primary: {
+          lighter: '#78C0E0',
+          default: '#449DD1',
+          darker: '#3943B7',
         },
       },
-      copy: {
-        primary: 'var(--text-copy-primary)',
-        secondary: 'var(--text-copy-secondary)',
-      },
-      github: 'var(--github-img)',
     },
   },
   variants: {

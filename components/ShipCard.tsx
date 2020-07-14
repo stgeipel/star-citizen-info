@@ -2,9 +2,13 @@ import Shipstatus from './Shipstatus';
 import { IShip } from '../types/Ship';
 import { formatNumber } from '../lib/fotmattings';
 
-const ShipCard = ({ data: ship }: { data: IShip }) => (
+export interface Props {
+  data: IShip;
+}
+
+const ShipCard: React.FC<Props> = ({ data: ship }) => (
   <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-    <div className="flex-1 bg-background-primary p-6 flex flex-col justify-between">
+    <div className="flex-1 bg-background-primary p-6 flex flex-col justify-between bg-white">
       <div className="flex-1">
         <a href="#" className="text-base text-gray-500">
           {ship.company.name}

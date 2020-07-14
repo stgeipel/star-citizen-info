@@ -6,10 +6,8 @@ import dynamic from 'next/dynamic';
 import { FiMoreHorizontal } from 'react-icons/fi';
 import { AiOutlineFontColors } from 'react-icons/ai';
 import { MdFeaturedPlayList } from 'react-icons/md';
-
-const ThemeSwitch = dynamic(() => import('@components/layout/ThemeSwitch'), {
-  ssr: false,
-});
+import ThemeSwitch from './ThemeSwitcher';
+import Dropdown from '../Dropdown';
 
 export interface Props {
   className?: string | Record<string, unknown>;
@@ -23,60 +21,45 @@ const AppHeader: React.FC<Props> = ({ className }) => {
         className
       )}
     >
-      <nav className="flex items-center justify-between flex-wrap bg-background-primary p-4 shadow-xl">
-        <div className="flex items-center flex-shrink-0  mr-6">
-          <span className="font-semibold text-xl tracking-tight text-copy-primary">
+      <div className="mr-auto flex items-center">
+        <Link href="#">
+          <a
+            title="home"
+            className="flex-grow text-xl font-black text-black dark:text-white dark:hover:text-black"
+          >
             Star Citizen Info
-          </span>
-
-          {/* <div className="hidden md:ml-6 md:flex md:items-center">
-        <a
-          href="#"
-          className="px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-        >
-          Dashboard
-        </a>
-        <a
-          href="#"
-          className="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-        >
-          Team
-        </a>
-        <a
-          href="#"
-          className="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-        >
-          Projects
-        </a>
-        <a
-          href="#"
-          className="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-        >
-          Calendar
-        </a>
-      </div> */}
-        </div>
-        {/* <!-- right side of nav --> */}
-        <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-          <div className="ml-3 relative">
-            <div>
-              <div className="flex items-center justify-center">
-                <label
-                  htmlFor="toogleA"
-                  className="flex items-center cursor-pointer"
-                >
-                  <div className="relative">
-                    <input id="toogleA" type="checkbox" className="hidden" />
-                    <div className="toggle__line w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
-                    <div className="toggle__dot absolute w-6 h-6 bg-white rounded-full shadow inset-y-0 left-0"></div>
-                  </div>
-                  <div className="ml-3 text-gray-700 font-medium"></div>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+          </a>
+        </Link>
+      </div>
+      <div>
+        <Dropdown buttonLabel={<FiMoreHorizontal />}>
+          <ul className="w-40 space-y-4 py-2 text-sm">
+            {/*<li>
+            <Link {...routes.COMPONENTS}>
+              <a className="text-primary hover:underline" title="components">
+                <MdFeaturedPlayList className="inline mr-2" />
+                Components
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link {...routes.TYPOGRAPHY}>
+              <a className="text-primary hover:underline" title="Typography">
+                <AiOutlineFontColors className="inline mr-2" />
+                Typography
+              </a>
+            </Link>
+          </li>
+            <li>
+              <hr className="dark:border-gray-700" />
+            </li>*/}
+            <li className="flex items-center justify-between">
+              <span className="mr-auto text-gray-600">Theme</span>
+              <ThemeSwitch />
+            </li>
+          </ul>
+        </Dropdown>
+      </div>
     </header>
   );
 };
