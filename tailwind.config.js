@@ -29,11 +29,19 @@ module.exports = {
     },
     extend: {
       colors: {
-        'geist-blue': '#0070f3',
-        'regal-blue': '#243c5a',
+        background: {
+          primary: 'var(--bg-background-primary)',
+          secondary: 'var(--bg-background-secondary)',
+          ternary: 'var(--bg-background-ternary)',
+        },
       },
+      copy: {
+        primary: 'var(--text-copy-primary)',
+        secondary: 'var(--text-copy-secondary)',
+      },
+      github: 'var(--github-img)',
     },
   },
   variants: {},
   plugins: [require('@tailwindcss/ui')],
-}
+};

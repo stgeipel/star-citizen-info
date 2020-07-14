@@ -4,7 +4,7 @@ import { formatNumber } from '../lib/fotmattings';
 
 const ShipCard = ({ data: ship }: { data: IShip }) => (
   <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-    <div className="flex-1 bg-white p-6 flex flex-col justify-between">
+    <div className="flex-1 bg-background-primary p-6 flex flex-col justify-between">
       <div className="flex-1">
         <a href="#" className="text-base text-gray-500">
           {ship.company.name}
