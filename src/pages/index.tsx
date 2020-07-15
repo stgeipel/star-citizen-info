@@ -1,21 +1,20 @@
-import Head from 'next/head';
-
+import React from 'react';
 import ShipCard from '../components/ShipCard';
 import { useState } from 'react';
-import getShips from '../hooks/get-ships';
-import getCompanies from '../hooks/get-companies';
-import { ICompany } from '../types/Ship';
+import GetShips from '../../utils/hooks/get-ships';
+import GetCompanies from '../../utils/hooks/get-companies';
+import { Company } from '../types/Ship';
 import Layout from '../components/layout/Layout';
 import { NextPage } from 'next';
 
 const Home: NextPage = () => {
-  const [filter, setFilter] = useState<ICompany>();
-  const ships = getShips();
-  const companies = getCompanies();
+  const [filter, setFilter] = useState<Company>();
+  const ships = GetShips();
+  const companies = GetCompanies();
 
   return (
-    <Layout title="Star Citizen Info" className="container py-8">
-      <div>
+    <Layout title="Star Citizen Info" className=" py-8">
+      <div className="flex justify-center">
         <div className=" pt-8 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
           <div>
             {companies &&
@@ -33,7 +32,7 @@ const Home: NextPage = () => {
                       <ShipCard key={s.name} data={s}></ShipCard>
                     ))
                   : ships
-                      .filter((s) => s.company.short_name == filter.short_name)
+                      .filter((s) => s.company.short_name === filter.short_name)
                       .map((s) => <ShipCard key={s.name} data={s}></ShipCard>))}
             </div>
           </div>

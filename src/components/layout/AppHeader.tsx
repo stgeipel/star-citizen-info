@@ -1,13 +1,12 @@
 import * as React from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 
 import { FiMoreHorizontal } from 'react-icons/fi';
-import { AiOutlineFontColors } from 'react-icons/ai';
-import { MdFeaturedPlayList } from 'react-icons/md';
+import { FaPrayingHands } from 'react-icons/fa';
 import ThemeSwitch from './ThemeSwitcher';
 import Dropdown from '../Dropdown';
+import routes from '../../../utils/routes';
 
 export interface Props {
   className?: string | Record<string, unknown>;
@@ -22,7 +21,7 @@ const AppHeader: React.FC<Props> = ({ className }) => {
       )}
     >
       <div className="mr-auto flex items-center">
-        <Link href="#">
+        <Link {...routes.INDEX}>
           <a
             title="home"
             className="flex-grow text-xl font-black text-black dark:text-white dark:hover:text-black"
@@ -50,12 +49,21 @@ const AppHeader: React.FC<Props> = ({ className }) => {
               </a>
             </Link>
           </li>
-            <li>
-              <hr className="dark:border-gray-700" />
-            </li>*/}
+            */}
             <li className="flex items-center justify-between">
               <span className="mr-auto text-gray-600">Theme</span>
               <ThemeSwitch />
+            </li>
+            <li>
+              <hr className="dark:border-gray-700" />
+            </li>
+            <li>
+              <Link {...routes.THANKSTO}>
+                <a className="text-primary hover:underline" title="Typography">
+                  <FaPrayingHands className="inline mr-2" />
+                  Thanks To
+                </a>
+              </Link>
             </li>
           </ul>
         </Dropdown>

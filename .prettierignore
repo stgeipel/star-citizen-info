@@ -1,7 +1,7 @@
+node_modules
+.next
 assets
 __snapshots__
 styles
-.next
-node_modules
 .vercel
 public

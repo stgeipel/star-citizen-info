@@ -1,9 +1,9 @@
-import useSWR from 'swr'
-import fetcher from '../lib/fetcher'
-import { IShip } from '../types/Ship'
+import useSWR from 'swr';
+import fetcher from '../fetcher';
+import { Ship } from '../../src/types/Ship';
 
-function getShips(): IShip[] {
-  const { data: { ship } = {} } = useSWR<{ ship: IShip[] }>(
+function GetShips(): Ship[] {
+  const { data: { ship } = {} } = useSWR<{ ship: Ship[] }>(
     `{
       ship {
         name
@@ -23,7 +23,7 @@ function getShips(): IShip[] {
     }
     `,
     fetcher
-  )
-  return ship
+  );
+  return ship;
 }
-export default getShips
+export default GetShips;
