@@ -8,7 +8,8 @@ exports[`AppHeader matches snapshot 1`] = `
     className="mr-auto flex items-center"
   >
     <Link
-      href="#"
+      as="/"
+      href="/"
     >
       <a
         className="flex-grow text-xl font-black text-black dark:text-white dark:hover:text-black"
@@ -34,6 +35,27 @@ exports[`AppHeader matches snapshot 1`] = `
             Theme
           </span>
           <ThemeSwitch />
+        </li>
+        <li>
+          <hr
+            className="dark:border-gray-700"
+          />
+        </li>
+        <li>
+          <Link
+            as="/thanksto"
+            href="/thanksto"
+          >
+            <a
+              className="text-primary hover:underline"
+              title="Typography"
+            >
+              <FaPrayingHands
+                className="inline mr-2"
+              />
+              Thanks To
+            </a>
+          </Link>
         </li>
       </ul>
     </Dropdown>
