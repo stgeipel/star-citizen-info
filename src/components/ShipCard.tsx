@@ -1,7 +1,7 @@
 import React from 'react';
 import Shipstatus from './Shipstatus';
 import { Ship } from '../types/Ship';
-import { formatNumber } from '../../utils/fotmattings';
+import { formatNumber } from '../utils/fotmattings';
 
 export interface Props {
   data: Ship;

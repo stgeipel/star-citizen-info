@@ -6,7 +6,7 @@ import { FiMoreHorizontal } from 'react-icons/fi';
 import { FaPrayingHands } from 'react-icons/fa';
 import ThemeSwitch from './ThemeSwitcher';
 import Dropdown from '../Dropdown';
-import routes from '../../../utils/routes';
+import routes from '../../utils/routes';
 
 export interface Props {
   className?: string | Record<string, unknown>;

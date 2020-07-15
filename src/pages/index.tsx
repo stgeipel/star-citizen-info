@@ -1,8 +1,8 @@
 import React from 'react';
 import ShipCard from '../components/ShipCard';
 import { useState } from 'react';
-import GetShips from '../../utils/hooks/get-ships';
-import GetCompanies from '../../utils/hooks/get-companies';
+import GetShips from '../utils/hooks/get-ships';
+import GetCompanies from '../utils/hooks/get-companies';
 import { Company } from '../types/Ship';
 import Layout from '../components/layout/Layout';
 import { NextPage } from 'next';

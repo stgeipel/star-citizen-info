@@ -1,6 +1,6 @@
 import useSWR from 'swr';
 import fetcher from '../fetcher';
-import { Ship } from '../../src/types/Ship';
+import { Ship } from '../../types/Ship';
 
 function GetShips(): Ship[] {
   const { data: { ship } = {} } = useSWR<{ ship: Ship[] }>(
