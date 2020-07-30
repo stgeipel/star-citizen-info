@@ -9,7 +9,7 @@ export interface Props {
 }
 
 const Layout: React.FC<Props> = ({
-  title = 'NextJS with TypeScript and TailwindCSS',
+  title = 'Star Citizen Info',
   className,
   children,
 }) => {
@@ -22,8 +22,7 @@ const Layout: React.FC<Props> = ({
         <AppHeader />
         <main className={clsx('flex-grow', className)}>{children}</main>
         <footer className="text-xs text-center text-gray-600 py-4 px-3">
-          Made with ♥ by{' '}
-          <a href="https://www.github.com/stgeipel">Steffen Geipel</a>
+          Made with ♥ by <a href="https://www.github.com/stgeipel">stgeipel</a>
         </footer>
       </div>
     </>
